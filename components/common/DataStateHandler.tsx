@@ -10,12 +10,12 @@ interface PaginatedResponse<T> {
 interface Props {
     error: any;
     data: PaginatedResponse<any> | null;
-    resource: string;
+    page: string;
     children: React.ReactNode;
 }
 
 
-export default function DataStateHandler({ error, data, resource, children }: Props) {
+export default function DataStateHandler({ error, data, page, children }: Props) {
     if (error) {
         return <div className="error">Erro: {error.message}</div>;
     }
@@ -23,7 +23,7 @@ export default function DataStateHandler({ error, data, resource, children }: Pr
     if (!data || !Array.isArray(data.data)) {
         return (
             <div>
-                Os dados de {resource} não puderam ser carregados corretamente.
+                Os dados de {page} não puderam ser carregados corretamente.
                 Tente recarregar a página
             </div>
         );
@@ -31,7 +31,7 @@ export default function DataStateHandler({ error, data, resource, children }: Pr
 
     if (data.total === 0) {
         <div>
-            Nenhum registro de {resource} encontrado.
+            Nenhum registro de {page} encontrado.
         </div>
     }
 

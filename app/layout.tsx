@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { AntdRegistry } from "@ant-design/nextjs-registry"
 
 export const metadata: Metadata = {
   title: "Mad Brindes",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body id="root-layout">
-        {children}
+        <AntdRegistry>{children}</AntdRegistry>
       </body>
     </html>
   );

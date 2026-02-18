@@ -1,4 +1,4 @@
-import Pages from '@/components/pages/Pages'
+import Pages from '@/components/pages/GenericPageLayout'
 import React from 'react'
 
 const page = () => {

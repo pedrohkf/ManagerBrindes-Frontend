@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-export default async function FetchData(resource: string, page: string) {
+export default async function FetchData(page: string) {
 
     const cookiesStore = await cookies();
     const token = cookiesStore.get('token')?.value;
@@ -9,14 +9,14 @@ export default async function FetchData(resource: string, page: string) {
         throw new Error("Token não encontrado nos cookies");
     }
 
-    const response = await fetch(`http://localhost:5432/${resource}/${page}`, {
+    const response = await fetch(`http://localhost:5432/${page}`, {
         headers: {
             Authorization: `Bearer ${token}`
         },
         next: { revalidate: 60 },
     });
 
-    if (!resource) throw new Error(`Erro ao buscar ${resource}`);
+    if (!page) throw new Error(`Erro ao buscar ${page}`);
 
     return response.json()
 }

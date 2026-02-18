@@ -1,4 +1,4 @@
-import Pages from '@/components/pages/Pages'
+import Pages from '@/components/pages/GenericPageLayout'
 
 export default function page() {
     return (
