@@ -1,5 +1,5 @@
 import GenericPageLayout from "@/components/pages/GenericPageLayout";
-import ProductTable from "@/components/table/OrderProduct";
+import ProductTable from "@/components/table/ProductTable";
 
 export default async function Page({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const { page } = await searchParams;
