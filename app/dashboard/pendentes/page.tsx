@@ -1,6 +1,7 @@
 import Pages from '@/components/pages/Pages'
+import React from 'react'
 
-function page() {
+const page = () => {
   return (
     <div>
       <Pages response="products"></Pages>

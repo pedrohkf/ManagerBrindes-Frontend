@@ -60,7 +60,7 @@ const Sidebar = () => {
                             key: '2',
                             icon: <VideoCameraOutlined />,
                             label: 'Produtos',
-                            onClick: () => redirect("./pendentes")
+                            onClick: () => redirect("./products")
                         },
                         {
                             key: '3',
