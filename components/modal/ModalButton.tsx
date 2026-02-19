@@ -1,7 +1,7 @@
 "use client"
 import { Button, Modal, message } from "antd";
 import { useState } from "react";
-import FormGeneric from "../form/FormGeneric";
+import FormProduct from "../form/FormProduct";
 import { submitProductData } from "@/actions/post";
 
 interface ModalButtonProps {
@@ -10,23 +10,11 @@ interface ModalButtonProps {
     fields: any[];
 }
 
-export default function ModalButton({ title, fields, page }: ModalButtonProps) {
+export default function ModalButton({ title }: ModalButtonProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const showModal = () => {
         setIsModalOpen(true);
-    };
-
-    const handleOk = async (formData: FormData) => {
-        try {
-            const response = await submitProductData(page, formData);
-            console.log('Response:', response);
-            message.success('Dados salvos com sucesso!');
-            setIsModalOpen(false);
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            message.error('Erro ao salvar dados');
-        }
     };
 
     const handleCancel = () => {
@@ -43,10 +31,9 @@ export default function ModalButton({ title, fields, page }: ModalButtonProps) {
                 closable={{ 'aria-label': 'Custom Close Button' }}
                 open={isModalOpen}
                 onCancel={handleCancel}
-                okText="Salvar"
-                cancelText="Cancelar"
+               footer={null}
             >
-                <FormGeneric fields={fields} onSubmit={handleOk} />
+                <FormProduct />
             </Modal>
         </div>
     )

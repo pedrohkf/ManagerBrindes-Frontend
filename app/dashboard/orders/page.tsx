@@ -7,7 +7,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 
   return (
     <div className="flex">
-      <GenericPageLayout resourcePath="orders/page" currentPage={currentPage} renderTable={(data) => <OrderTable paginatedData={data} />} />
+      <GenericPageLayout apiUrl="orders" resourcePath="orders/page" currentPage={currentPage} renderTable={(data) => <OrderTable paginatedData={data} />} />
     </div>
   );
 }

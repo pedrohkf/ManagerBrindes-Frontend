@@ -13,7 +13,7 @@ export default async function FetchData(page: string) {
         headers: {
             Authorization: `Bearer ${token}`
         },
-        next: { revalidate: 60 },
+        next: { revalidate: 20 },
     });
 
     if (!page) throw new Error(`Erro ao buscar ${page}`);
