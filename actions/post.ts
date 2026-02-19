@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 
-export async function submitProductData(page: string, formData: FormData) {
+export async function submitData(page: string, formData: FormData) {
     const cookiesStore = await cookies();
     const token = cookiesStore.get('token')?.value;
 

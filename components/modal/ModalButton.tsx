@@ -1,8 +1,8 @@
 "use client"
-import { Button, Modal, message } from "antd";
+import { Button, Modal } from "antd";
 import { useState } from "react";
 import FormProduct from "../form/FormProduct";
-import { submitProductData } from "@/actions/post";
+import FormClient from "../form/FormClient";
 
 interface ModalButtonProps {
     page: string;
@@ -31,9 +31,10 @@ export default function ModalButton({ title }: ModalButtonProps) {
                 closable={{ 'aria-label': 'Custom Close Button' }}
                 open={isModalOpen}
                 onCancel={handleCancel}
-               footer={null}
+                footer={null}
             >
-                <FormProduct />
+                {title === "Produto" ? <FormProduct /> : <FormClient/>}
+
             </Modal>
         </div>
     )

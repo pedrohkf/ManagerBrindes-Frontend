@@ -1,7 +1,7 @@
 import { Button, GetProp, message, Upload, UploadFile, UploadProps } from "antd";
 import Input from "antd/es/input/Input";
 import { useState } from "react";
-import { submitProductData } from "@/actions/post";
+import { submitData } from "@/actions/post";
 
 type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
 
@@ -45,7 +45,7 @@ export default function FormProduct() {
         dataToSend.forEach((value, key) => console.log(`${key}:`, value));
 
         try {
-            await submitProductData('products', dataToSend);
+            await submitData('products', dataToSend);
             message.success("Produto salvo!");
         } catch (error: any) {
             message.error(error.message);

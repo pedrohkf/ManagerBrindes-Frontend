@@ -1,4 +1,5 @@
 import GenericPageLayout from "@/components/pages/GenericPageLayout";
+import ClientTable from "@/components/table/ClientTable";
 import ProductTable from "@/components/table/ProductTable";
 
 export const clientsFields = [
@@ -14,7 +15,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ p
 
   return (
     <div className="flex">
-      <GenericPageLayout apiUrl="clients" title="client" fields={clientsFields} resourcePath="clients/page" currentPage={currentPage} renderTable={(data) => <ProductTable paginatedData={data} />} />
+      <GenericPageLayout apiUrl="clients" title="Cliente" fields={clientsFields} resourcePath="clients/page" currentPage={currentPage} renderTable={(data) => <ClientTable paginatedData={data} />} />
     </div>
   );
 }
